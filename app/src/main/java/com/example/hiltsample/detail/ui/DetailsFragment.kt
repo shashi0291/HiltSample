@@ -5,16 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.hiltsample.R
 import com.example.hiltsample.databinding.FragmentSecondBinding
+import com.example.hiltsample.detail.viewmodel.PhotoDetailViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
+@AndroidEntryPoint
 class DetailsFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
+
+    private val detailViewModel: PhotoDetailViewModel by viewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -36,6 +42,7 @@ class DetailsFragment : Fragment() {
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
+        detailViewModel.getPhotoById(1)
     }
 
     override fun onDestroyView() {
