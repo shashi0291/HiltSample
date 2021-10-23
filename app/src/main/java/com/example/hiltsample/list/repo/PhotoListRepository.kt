@@ -4,6 +4,7 @@ import com.example.hiltsample.list.model.Photo
 import io.reactivex.Observable
 
 interface PhotoListRepository {
-
-    fun fetchPhotoList(): Observable<List<Photo>>
+    fun init()
+    fun getPhotoListFromCache(): Observable<List<Photo>>
+    fun getFromCacheOrFetch(): Observable<List<Photo>>
 }

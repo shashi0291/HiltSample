@@ -42,7 +42,7 @@ class DetailsFragment : Fragment() {
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
-        detailViewModel.getPhotoById(1)
+        detailViewModel.getPhotoById2(1)
     }
 
     override fun onDestroyView() {
